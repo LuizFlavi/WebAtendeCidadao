@@ -20,7 +20,7 @@ namespace WebAtendeCidadao.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(Login model)
         {
-            var data = await _apiservices.login(model);
+            var data = await _apiservices.Login(model);
 
             return View();
         }

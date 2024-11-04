@@ -1,0 +1,54 @@
+﻿@using System.Linq
+@model List<WebAtendeCidadao.Models.SolicitacaoModel>
+
+@{
+    ViewData["Title"] = "Lista de Solicitações";
+}
+
+<h2>Solicitações</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Data de Criação</th>
+            <th>Data de Atualização</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (!Model.Any())
+        {
+            <tr>
+                <td colspan="7" class="text-center">Nenhuma solicitação encontrada.</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var solicitacao in Model)
+            {
+                <tr>
+                    <td>@solicitacao.Id</td>
+                    <td>@solicitacao.Titulo</td>
+                    <td>@solicitacao.Descricao</td>
+                    <td>@solicitacao.DataCriacao.ToString("dd/MM/yyyy")</td>
+                    <td>@(solicitacao.DataAtualizacao?.ToString("dd/MM/yyyy") ?? "N/A")</td>
+                    <td>@solicitacao.Status.ToString()</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Solicitacao", new { id = solicitacao.Id })" class="btn btn-primary">Editar</a>
+                        <form asp-action="Delete" asp-controller="Solicitacao" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@solicitacao.Id" />
+                            <button type="submit" class="btn btn-danger">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+

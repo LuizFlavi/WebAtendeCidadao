@@ -20,3 +20,30 @@ html {
 body {
   margin-bottom: 60px;
 }
+/* Imagem de fundo responsiva */
+.fullscreen-background {
+    background-image: url('/Imagens/Sao_Paulo_Brasil.jpg');
+    background-size: cover; /* Faz a imagem cobrir toda a área */
+    background-position: center; /* Centraliza a imagem */
+    position: fixed; /* Mantém a imagem fixa na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Mantém a imagem atrás de outros elementos */
+}
+.footer-text {
+    color: black; /* Define a cor do texto como preto */
+}
+.footer-text {
+    color: white;
+}
+
+    .footer-text a {
+        color: black; /* Define a cor do link como preto */
+        text-decoration: none; /* Remove o sublinhado, se desejado */
+    }
+
+        .footer-text a:hover {
+            text-decoration: underline; /* Adiciona sublinhado no hover, se desejado */
+        }
